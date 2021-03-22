@@ -60,9 +60,9 @@ class BookCreateView(ListCreateAPIView):
     authentication_classes = [TokenAuthentication,SessionAuthentication]
     permission_classes = [IsAdminUser]
 
-#     def get_queryset(self):
-#         # last_two_days = now() - timedelta(days=2)
-#         return Book.objects.all()
+    def get_queryset(self):
+        # last_two_days = now() - timedelta(days=2)
+        return Book.objects.all()
 #     def get_serializer_class(self):
 #         if self.request.method == 'GET':
 #             return BookSerializer1
