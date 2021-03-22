@@ -27,12 +27,12 @@ class AuthorSerializer(serializers.ModelSerializer):
             print("ehr")
             raise serializers.ValidationError('Name should have only alphabets,space and dot')
         return value
-class BookSerializer(serializers.ModelSerializer):
+class BookSerializer(serializers.HyperlinkedModelSerializer):
     author = AuthorSerializer()
     rating = serializers.ChoiceField(choices=[1, 2, 3, 4, 5])
     class Meta:
         model = Book
-        fields = ['name', 'price','description','rating','isbn','pub_date','author']
+        fields = ['name', 'price','description','rating','isbn','pub_date','author','url']
         # validators = [
         #     UniqueTogetherValidator(
         #         queryset=Book.objects.all(),
