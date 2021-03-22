@@ -22,8 +22,8 @@ urlpatterns = format_suffix_patterns([
     path('Author/', Author_list, name='books-list'),
     path('Author/<int:pk>/', Author_detail, name='books-detail'),
     # path('Author/<int:pk>/books/', Author_highlight, name='Author-books'),
-    path('BookCreate/',BookCreateView.as_view(),name='book_create'),
-    path('BookRetrieveUpdateDestroy/<int:pk>',BookRetrieveUpdateDestroyView.as_view(),name='book_rud'),
+    path('BookCreate/',BookCreateView.as_view(),name='book-list'),
+    path('BookRetrieveUpdateDestroy/<int:pk>',BookRetrieveUpdateDestroyView.as_view(),name='book_detail'),
     # path('BookUpdate/<int:pk>',BookUpdateView.as_view(),name='book_pat'),
     path('BookAuthorSearchList/',BookAuthorSearchList.as_view(),name='book_asl'),
 
