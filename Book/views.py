@@ -55,10 +55,15 @@ class AuthorViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         permission_classes = permissions
         serializer.save()
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 5
+    page_size_query_param = 'page_size'
+    max_page_size = 1000        
 class BookCreateView(ListCreateAPIView):
     serializer_class = BookSerializer
     authentication_classes = [TokenAuthentication,SessionAuthentication]
     permission_classes = [IsAdminUser]
+    pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         # last_two_days = now() - timedelta(days=2)
